@@ -8,7 +8,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <!-- 应用上下文配置文件 -->
-        <param-value>/WEB-INF/spring-servlet.xml</param-value>
+        <param-value>classpath:spring-servlet.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
