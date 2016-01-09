@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Created by ZE on 1/8.
  */
 @Repository
-public class LoginDao implements Serializable {
+public class LoginLogDao implements Serializable {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
