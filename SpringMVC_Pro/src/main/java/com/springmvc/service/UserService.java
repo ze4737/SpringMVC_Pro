@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService {
+    public static void main(String[] args) {
+        UserService userService = new UserService();
+        boolean f = userService.hasMatchUser("admin", "123456");
+        System.out.println(f);
+    }
+
     @Autowired
     private UserDao userDao;
     @Autowired

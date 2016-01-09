@@ -1,5 +1,9 @@
 package com.springmvc.controller;
 
+import com.springmvc.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +19,21 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class MainController {
+    public static void main(String[] args) {
+        MainController mainController = new MainController();
+        mainController.test();
+    }
+    @Autowired
+    private UserDao userDao;
+
+    public void test(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring-servlet.xml");
+        System.out.println(userDao==null);
+        userDao = (UserDao) ac.getBean("userDao");
+        int match = userDao.getMatchCount("admin","123456");
+        System.out.println(match);
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
         return "/welcome";
