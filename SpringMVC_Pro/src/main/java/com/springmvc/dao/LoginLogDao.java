@@ -1,6 +1,6 @@
 package com.springmvc.dao;
 
-import com.springmvc.domain.LoginLog;
+import com.springmvc.entity.vo.log.LoginLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

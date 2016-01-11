@@ -1,6 +1,6 @@
 package com.springmvc.dao;
 
-import com.springmvc.domain.User;
+import com.springmvc.entity.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;

@@ -2,8 +2,8 @@ package com.springmvc.service;
 
 import com.springmvc.dao.LoginLogDao;
 import com.springmvc.dao.UserDao;
-import com.springmvc.domain.LoginLog;
-import com.springmvc.domain.User;
+import com.springmvc.entity.vo.log.LoginLog;
+import com.springmvc.entity.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +12,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService {
-    public static void main(String[] args) {
-        UserService userService = new UserService();
-        boolean f = userService.hasMatchUser("admin", "123456");
-        System.out.println(f);
-    }
-
     @Autowired
     private UserDao userDao;
     @Autowired

@@ -1,10 +1,11 @@
-package com.springmvc.domain;
+package com.springmvc.entity.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by ZE on 1/8.
+ * 用户实体类
  */
 public class User implements Serializable {
     private int userid;

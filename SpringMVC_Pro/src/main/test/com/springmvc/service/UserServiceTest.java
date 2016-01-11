@@ -1,7 +1,6 @@
 package com.springmvc.service;
 
-import com.springmvc.dao.UserDao;
-import com.springmvc.domain.User;
+import com.springmvc.entity.dto.User;
 import com.springmvc.util.BaseSpringTestCase;
 import org.junit.After;
 import org.junit.Before;
@@ -14,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserServiceTest extends BaseSpringTestCase {
     @Autowired
     private UserService userService;
-    @Autowired
-    private UserDao userDao;
 
     @Before
     public void setUp() throws Exception {

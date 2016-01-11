@@ -1,4 +1,4 @@
-package com.springmvc.domain;
+package com.springmvc.entity.vo.log;
 
 import java.io.Serializable;
 import java.util.Date;

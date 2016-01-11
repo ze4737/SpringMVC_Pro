@@ -17,7 +17,6 @@
             http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
     <!--指明包，并扫描其中的注解-->
-    <context:annotation-config />
     <context:component-scan base-package="com.springmvc.controller,
                                         com.springmvc.action,
                                         com.springmvc.dao,
@@ -25,7 +24,7 @@
 
     <!-- 对静态资源文件的访问  方案一  -->
     <mvc:default-servlet-handler/>
-    <!--
+    <!--test
     &lt;!&ndash; 对静态资源文件的访问  方案二 &ndash;&gt;
     &lt;!&ndash;匹配URL  /images/**  的URL被当做静态资源，由Spring读出到内存中再响应http&ndash;&gt;
     <mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/>
@@ -35,20 +34,6 @@
 
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
-
-    <!-- 拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/action/*" />
-            <bean class="com.springmvc.interceptor.MyInterceptor"/>
-        </mvc:interceptor>
-
-        <mvc:interceptor>
-            <mvc:mapping path="/user/*" />
-            <bean class="com.springmvc.interceptor.UserInterceptor"></bean>
-        </mvc:interceptor>
-
-    </mvc:interceptors>
 
     <!--ViewResolver 视图解析器-->
     <!--用于支持Servlet、JSP视图解析-->
@@ -98,5 +83,20 @@
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
+
+
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/action/*" />
+            <bean class="com.springmvc.interceptor.MyInterceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/user/*" />
+            <bean class="com.springmvc.interceptor.UserInterceptor"></bean>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 
 </beans>
