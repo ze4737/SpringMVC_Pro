@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  * 不用ApplicationContext就可以获得Spring容器
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring-servlet.xml")
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 @Transactional
 public class BaseSpringTestCase extends TestCase {
 
