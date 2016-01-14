@@ -45,7 +45,7 @@ public class LoginController {
             modelMap.put("loginUser",loginInput.getUsername());
             modelAndView = new ModelAndView("/login/hello", modelMap);
         }else{
-            modelMap.put("errorMsg","�û����������");
+            modelMap.put("errorMsg","用户名密码错误");
             modelAndView = new ModelAndView("/login/login", modelMap);
         }
         return modelAndView;

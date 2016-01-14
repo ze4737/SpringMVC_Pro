@@ -6,6 +6,7 @@ import com.springmvc.entity.vo.log.LoginLog;
 import com.springmvc.entity.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by ZE on 1/9.
@@ -17,11 +18,13 @@ public class UserService {
     @Autowired
     private LoginLogDao loginLogDao;
 
+    @Transactional(readOnly = true)
     public boolean hasMatchUser(String username, String password){
         int matchcount = userDao.getMatchCount(username, password);
         return matchcount>0;
     }
 
+    @Transactional(readOnly = true)
     public User findUserByUserName(String username){
 //        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
 //        userService = (UserService) ctx.getBean("userService");
@@ -29,6 +32,7 @@ public class UserService {
         return user;
     }
 
+    @Transactional
     public void loginSuccess(User user){
         LoginLog loginLog = new LoginLog();
         loginLog.setUserid(user.getUserid());

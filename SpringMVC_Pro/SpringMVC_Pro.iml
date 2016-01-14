@@ -10,8 +10,8 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -20,6 +20,7 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring-servlet.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/advice/adviceBeans.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/beans/aopBeans.xml</file>
         </fileset>
       </configuration>
     </facet>

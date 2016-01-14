@@ -11,7 +11,7 @@ public class UserDaoTest {
 
     @Test
     public void testTestUpdate() throws Exception {
-        String configPath = "advice/adviceBeans.xml";
+        String configPath = "beans/aopBeans.xml";
         ApplicationContext ctx = new ClassPathXmlApplicationContext(configPath);
         UserDao dao = (UserDao) ctx.getBean("userDao");
         dao.testUpdate();

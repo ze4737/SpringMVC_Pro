@@ -37,6 +37,8 @@
 
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    <aop:aspectj-autoproxy />
 
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -65,6 +67,8 @@
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
+
+
 
     <!-- 总错误处理-->
     <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
