@@ -15,31 +15,4 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- 总错误处理-->
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="defaultErrorView">
-            <value>/error/error</value>
-        </property>
-        <property name="defaultStatusCode">
-            <value>500</value>
-        </property>
-        <property name="warnLogCategory">
-            <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
-        </property>
-    </bean>
-
-    <!-- 拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/action/*" />
-            <bean class="com.springmvc.interceptor.MyInterceptor"/>
-        </mvc:interceptor>
-
-        <mvc:interceptor>
-            <mvc:mapping path="/user/*" />
-            <bean class="com.springmvc.interceptor.UserInterceptor"></bean>
-        </mvc:interceptor>
-
-    </mvc:interceptors>
-
 </beans>

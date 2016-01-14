@@ -38,7 +38,11 @@ public class UserDao {
 
     public void updateLoginInfo(User user){
         String sqlStr = "update t_user set last_visit = ?,last_ip = ? where user_id = ?";
-        jdbcTemplate.update(sqlStr, user.getLastvisit(),user.getLastip(),user.getUserid());
+        jdbcTemplate.update(sqlStr, user.getLastvisit(), user.getLastip(), user.getUserid());
+    }
+
+    public void testUpdate() throws SQLException {
+        throw new SQLException("登录日志写入异常...");
     }
 
 }

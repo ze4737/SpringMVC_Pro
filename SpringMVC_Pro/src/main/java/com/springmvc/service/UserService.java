@@ -23,6 +23,8 @@ public class UserService {
     }
 
     public User findUserByUserName(String username){
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
+//        userService = (UserService) ctx.getBean("userService");
         User user = userDao.findUserByUserName(username);
         return user;
     }

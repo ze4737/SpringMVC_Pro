@@ -30,13 +30,13 @@ public class LoginController {
     @RequestMapping(value = "/{user}", method = RequestMethod.GET)
     public ModelAndView loginTest(HttpServletRequest request,HttpServletResponse response,
                                  @PathVariable("user") String user, ModelMap modelMap) throws Exception {
+        System.out.println("ç™»å½•ä¸­ï¼š" + user);
         modelMap.put("loginUser", user);
         return new ModelAndView("/login/hello", modelMap);
     }
 
     @RequestMapping(value = "/check")
     public ModelAndView loginCheck(HttpServletRequest request, LoginInput loginInput){
-        String result = "";
         ModelMap modelMap = new ModelMap();
         ModelAndView modelAndView = null;
 
@@ -45,7 +45,7 @@ public class LoginController {
             modelMap.put("loginUser",loginInput.getUsername());
             modelAndView = new ModelAndView("/login/hello", modelMap);
         }else{
-            modelMap.put("errorMsg","ÓÃ»§ÃûÃÜÂë´íÎó");
+            modelMap.put("errorMsg","ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             modelAndView = new ModelAndView("/login/login", modelMap);
         }
         return modelAndView;

@@ -1,5 +1,7 @@
 package com.springmvc.entity.dto;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +9,7 @@ import java.util.Date;
  * Created by ZE on 1/8.
  * 用户实体类
  */
+@Component
 public class User implements Serializable {
     private int userid;
     private String username;

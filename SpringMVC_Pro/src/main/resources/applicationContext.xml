@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:aop="http://www.springframework.org/schema/aop"
@@ -20,7 +21,9 @@
     <context:component-scan base-package="com.springmvc.controller,
                                         com.springmvc.action,
                                         com.springmvc.dao,
-                                        com.springmvc.service"/>
+                                        com.springmvc.service,
+                                        com.springmvc.entity,
+                                        com.springmvc.advice"/>
 
     <!-- 对静态资源文件的访问  方案一  -->
     <mvc:default-servlet-handler/>
@@ -62,5 +65,32 @@
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
+
+    <!-- 总错误处理-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView">
+            <value>/error/error</value>
+        </property>
+        <property name="defaultStatusCode">
+            <value>500</value>
+        </property>
+        <property name="warnLogCategory">
+            <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
+        </property>
+    </bean>
+
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/action/*" />
+            <bean class="com.springmvc.interceptor.MyInterceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/user/*" />
+            <bean class="com.springmvc.interceptor.UserInterceptor"></bean>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 
 </beans>

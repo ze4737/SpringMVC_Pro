@@ -8,11 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by ZE on 1/9.
- * ²âÊÔÓÃ¹«¹²Àà£º
- * ²»ÓÃApplicationContext¾Í¿ÉÒÔ»ñµÃSpringÈİÆ÷
+ * æµ‹è¯•ç”¨å…¬å…±ç±»ï¼š
+ * ä¸ç”¨ApplicationContextå°±å¯ä»¥è·å¾—Springå®¹å™¨
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 @Transactional
 public class BaseSpringTestCase extends TestCase {
 
