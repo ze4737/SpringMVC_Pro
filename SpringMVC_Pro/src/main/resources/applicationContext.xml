@@ -5,7 +5,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
             http://www.springframework.org/schema/context
@@ -13,16 +12,10 @@
             http://www.springframework.org/schema/mvc
             http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
             http://www.springframework.org/schema/aop
-            http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
-            http://www.springframework.org/schema/tx
-            http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+            http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
 
     <!--指明包，并扫描其中的注解-->
-    <context:component-scan base-package="com.springmvc.controller,
-                                        com.springmvc.dao,
-                                        com.springmvc.service,
-                                        com.springmvc.entity,
-                                        com.springmvc.advice"/>
+    <context:component-scan base-package="com.springmvc.*"/>
 
     <!-- 对静态资源文件的访问  方案一  -->
     <mvc:default-servlet-handler/>
@@ -36,7 +29,7 @@
 
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
-    <tx:annotation-driven transaction-manager="transactionManager" />
+
     <aop:aspectj-autoproxy />
 
     <!-- 数据源配置 -->

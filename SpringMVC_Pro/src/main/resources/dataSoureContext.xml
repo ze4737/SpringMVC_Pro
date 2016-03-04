@@ -12,22 +12,36 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
     <!-- 配置数据源 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+<!--
+    <bean id="DataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql://localhost:3306/o2o_dev"
+          p:url="jdbc:mysql://localhost:3306/sampledb"
           p:username="root"
-          p:password="123456" />
-
+          p:password="123" />
+    -->
+    <bean id="DataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="jdbc:mysql://192.168.1.221:3306/m2h_dev"
+          p:username="root"
+          p:password="root@mysql" />
     <!-- 配置Jdbc模板  -->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
           p:dataSource-ref="dataSource" />
+    <!-- mybatis config -->
+    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath*:sqlMapConfig.xml" />
+        <property name="dataSource" ref="DataSource" />
+    </bean>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-          p:dataSource-ref="dataSource" />
+          p:dataSource-ref="DataSource" />
 
     <!-- 通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务 -->
     <aop:config proxy-target-class="true">

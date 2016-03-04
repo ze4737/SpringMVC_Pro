@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.qiaocat.dao.ITagDao">
+    <select id = "queryUserById" resultType = "hashmap" parameterType = "hashmap">
+        select
+        t.id,
+        t.parent_id,
+        t.name,
+        t.is_show,
+        t.pic_url,
+        t.created_at,
+        t.updated_at,
+        t.updated_by
+        from
+        m2_user t
+        where
+        t.id = #{id}
+    </select>
+    <select id="queryUserCount" resultType="long">
+        select COUNT(*) from m2_user t
+    </select>
+</mapper>
